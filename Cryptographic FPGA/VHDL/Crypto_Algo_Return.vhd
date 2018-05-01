@@ -46,38 +46,38 @@ architecture arch of Crypto_Algo_Return is
 							hyperout <= (others => '0');
 						else
 							case (blk_dvld OR blk_kvld) is
-								when '1' => -- I only use blk_dvld case
+								when '1' => 
 								    hyperout(8*N-EXBITS-1 downto 0) <= blk_dout1;
 --								    hyperout(8*N-1 downto 8*N-EXBITS) <= (others => '0');
 --									hyperout(2*8*N-EXBITS-1 downto 1*8*N) <= blk_dout2;
 --									hyperout(2*8*N-1 downto 2*8*N-EXBITS) <= (others => '0');
 --									hyperout(3*8*N-EXBITS-1 downto 2*8*N) <= blk_dout3;
---                                    hyperout(3*8*N-1 downto 3*8*N-EXBITS) <= (others => '0');
---                                    hyperout(4*8*N-EXBITS-1 downto 3*8*N) <= blk_dout4;
---                                    hyperout(4*8*N-1 downto 4*8*N-EXBITS) <= (others => '0');
---                                    hyperout(5*8*N-EXBITS-1 downto 4*8*N) <= blk_dout5;
---                                    hyperout(5*8*N-1 downto 5*8*N-EXBITS) <= (others => '0');
+--                                  hyperout(3*8*N-1 downto 3*8*N-EXBITS) <= (others => '0');
+--                                  hyperout(4*8*N-EXBITS-1 downto 3*8*N) <= blk_dout4;
+--                                  hyperout(4*8*N-1 downto 4*8*N-EXBITS) <= (others => '0');
+--                                  hyperout(5*8*N-EXBITS-1 downto 4*8*N) <= blk_dout5;
+--                                  hyperout(5*8*N-1 downto 5*8*N-EXBITS) <= (others => '0');
 								when others =>
 									hyperout <= hyperout;
 							end case;
 						end if;
 						
-						case blk_kvld is                -- blk_kvld input stays 'HIGH' for 1 SLOW_clock sycle
+						case blk_kvld is                
 							when '1' =>
-								kvld <= '1';            -- kvld for INTER_OUT component / stays 'HIGH' for 1 SLOW_clock sycle
+								kvld <= '1';            
 							when others =>
 								kvld <= '0';
 						end case;
 						
-						case blk_dvld is                -- blk_dvld input stays 'HIGH' for 1 SLOW_clock sycle
+						case blk_dvld is                
 							when '1' =>
-								dvld <= '1';            -- dvld for INTER_OUT component / stays 'HIGH' for 1 SLOW_clock sycle
+								dvld <= '1';            
 							when others =>
 								dvld <= '0';
 						end case;						
 					end if;
 		end process;
-		hyperegout <= hyperout;                       -- Return of the Crypto Component
-		s_kvld <= kvld;                               -- stays 'HIGH' for 1 SLOW_clock sycle
-		s_dvld <= dvld;                               -- stays 'HIGH' for 1 SLOW_clock sycle
+		hyperegout <= hyperout;                       
+		s_kvld <= kvld;                               
+		s_dvld <= dvld;                               
 end arch;

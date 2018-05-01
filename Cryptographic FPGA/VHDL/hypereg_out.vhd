@@ -40,10 +40,10 @@ architecture arch of hypereg_out is
 	signal len1: integer;
 	
 	begin
-		proc0: process(clk)                           -- MAYBE unecessary 1 FAST_clock cycle delay / unecessaru because set_dvld comes from INTER_OUT component as well as the hyperegout
+		proc0: process(clk)                           
 			begin
 				if (clk'event and clk='1') then
-					dvld <= set_dvld;              -- DELAY OF 1 CLOCK CYCLE, IN ORDER FOR THE HYPEREGOUT TO GET SET WITH THE RIGHT VALUE OF CIPHERTEXT
+					dvld <= set_dvld;              
 				end if;
 		end process;
 		

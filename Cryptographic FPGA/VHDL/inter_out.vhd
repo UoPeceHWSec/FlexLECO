@@ -45,7 +45,7 @@ architecture arch of INTERout is
 	signal hypereg: std_logic_vector (DAO*8*N-1 downto 0);
 	
 	begin
-		proc0: process(clk)                               --Unecessary 1 FAST_clock cycle delay
+		proc0: process(clk)                               
 				begin
 					if (clk'event and clk='1') then
 					   inp_k_ff <= s_kvld;
@@ -70,19 +70,19 @@ architecture arch of INTERout is
 					   end if;
 						
 					   if ((inp_k_ff AND (NOT outp_k_ff)) = '1') then	
-							kvld <= '1';                                 -- stays 'HIGH' for 1 FAST_clock sycle
+							kvld <= '1';                                 
 					   else
 							kvld <= '0';
 					   end if;
 						
 					   if ((inp_d_ff AND (NOT outp_d_ff)) = '1') then
-							dvld <= '1';                                 -- stays 'HIGH' for 1 FAST_clock sycle
+							dvld <= '1';                                 
 					   else
 							dvld <= '0';
 					   end if;
 				    end if;
 		end process;
-		f_kvld <= kvld;                                                 -- acts like BLK_KVLD - stays 'HIGH' for 1 FAST_clock sycle
-		f_dvld <= dvld;                                                 -- acts like BLK_DVLD - stays 'HIGH' for 1 FAST_clock sycle
-		f_hyperegout <= hypereg;                                        -- Return of the Crypto Component
+		f_kvld <= kvld;                                                 
+		f_dvld <= dvld;                                                 
+		f_hyperegout <= hypereg;                                        
 end arch;

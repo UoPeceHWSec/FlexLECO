@@ -14,7 +14,6 @@ use IEEE.NUMERIC_STD.ALL;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity smallin is
-		--generic (N: integer:=16; K: integer:=8; INS: integer:=2);
 		
 		port (	-------------- Clock and Reset
 			clk: in std_logic;

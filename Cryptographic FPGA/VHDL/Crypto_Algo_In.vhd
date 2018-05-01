@@ -60,7 +60,7 @@ architecture arch of Crypto_Algo_In is
 						case s_krdy is
 							when '1' =>
 								in1(8*N-1 downto 0) <= hyperegin(8*N-1 downto 0);
-								kvld <= '1';                                        -- setting 'HIGH' the ACK signal / it stays 'HIGH' for 1 SLOW_clock
+								kvld <= '1';                                        
 							when others =>
 								in1 <= in1;
 								kvld <= '0';
@@ -72,7 +72,7 @@ architecture arch of Crypto_Algo_In is
 --								in4(8*N-1 downto 0) <= hyperegin((2*8*N-1) downto (8*N));
 --								in3(8*N-1 downto 0) <= hyperegin((3*8*N-1) downto (2*8*N));
 --								in2(8*N-1 downto 0) <= hyperegin((4*8*N-1) downto (3*8*N));
-								dvld <= '1';                                      -- setting 'HIGH' the ACK signal / it stays 'HIGH' for 1 SLOW_clock
+								dvld <= '1';                                      
 							when others =>
 								in5 <= in5;
 								in4 <= in4;
@@ -83,10 +83,10 @@ architecture arch of Crypto_Algo_In is
 					end if;
 				end if;
 		end process;
-		s_krdy_cr <= kvld;                            -- the ACK signal, acts also as BLK_KRDY for the Crypto Component   / it stays 'HIGH' for 1 SLOW_clock
-		s_drdy_cr <= dvld;                            -- the ACK signal, acts also as BLK_DRDY for the Crypto Component   / it stays 'HIGH' for 1 SLOW_clock
-		s_kvld <= kvld;                               -- the ACK signal that is send back to INTER_IN component, to disable s_krdy    / it stays 'HIGH' for 1 SLOW_clock
-		s_dvld <= dvld;                               -- the ACK signal that is send back to INTER_IN component, to disable s_drdy    / it stays 'HIGH' for 1 SLOW_clock
+		s_krdy_cr <= kvld;                            
+		s_drdy_cr <= dvld;                            
+		s_kvld <= kvld;                               
+		s_dvld <= dvld;                               
 		blk_in1 <= in1;
 		blk_in5 <= in5;
 --		blk_in4 <= in4;

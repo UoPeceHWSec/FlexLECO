@@ -67,7 +67,7 @@ architecture arch of controlword is
 								cntrl(3) <= cntrl(3);
 						end case;
 					end if;
-					cntrl(5) <= NOT(blk_rstn);	-- because blk_rstn is active low
+					cntrl(5) <= NOT(blk_rstn);	
 					cntrl(4) <= blk_endec;
 				end if;
 		end process;

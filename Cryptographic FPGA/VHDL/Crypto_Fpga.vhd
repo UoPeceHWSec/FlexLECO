@@ -83,7 +83,7 @@ component crypto_if is
 		------------------------------------------------
 			blk_kvld: in std_logic;		-- Round-Key generation is completed
 			blk_dvld: in std_logic;		-- Cipher(plain)text ready on data input port (Cryptographic module -> Interface)
-			blk_krdy: out std_logic;	-- Secret key is latched for an internal register of the AES component
+			blk_krdy: out std_logic;	-- Secret key is latched for an internal register of the Crypto component
 			blk_drdy: out std_logic;	-- Plaintext is latched & encryption process begins
 			
 			small_in: out std_logic_vector (7 downto 0);		--for the small input of E.C. implementation

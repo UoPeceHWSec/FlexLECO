@@ -41,28 +41,27 @@ architecture arch of INTERin is
 			begin	
 				if (clk'event and clk='1') then
 				
-					--Set/Reset of SLOW Krdy
-					if ((rst = '1') OR (s_kvld = '1'))then         -- s_kvld comes from the AES_in component as an ACK signal for receiving the KRDY signal.
+					if ((rst = '1') OR (s_kvld = '1'))then         
 						krdy <= '0';
-					elsif (f_krdy = '1') then                      -- f_krdy stays at '1' for 1 FAST_clock cycle (component krdy)
+					elsif (f_krdy = '1') then                      
 						krdy <= '1';
 					else
-						krdy <= krdy;                             -- preserves the previous value, so the AES_IN component with the SLOW_clock, to be able and 'catch' krdy = 'HIGH'
+						krdy <= krdy;                             
 					end if;
 					
-					--Set/Reset of SLOW Drdy
-					if ((rst = '1') OR (s_dvld = '1'))then         -- s_dvld comes from the AES_in component as an ACK signal for receiving the DRDY signal.
+					
+					if ((rst = '1') OR (s_dvld = '1'))then         
 						drdy <= '0';
-					elsif (f_drdy = '1') then                      -- f_drdy stays at '1' for 1 FAST_clock cycle (component drdy)
+					elsif (f_drdy = '1') then                      
 						drdy <= '1';
 					else
-						drdy <= drdy;                              -- preserves the previous value, so the AES_IN component with the SLOW_clock, to be able and 'catch' drdy = 'HIGH'
+						drdy <= drdy;                              
 					end if;
 					
-					--Set/Reset of SLOW Hyperegin
+
 					case (f_krdy OR f_drdy) is
 						when '1' =>
-							hypereg <= f_hyperegin;               -- hypereg takes the new value when f_krdy = '1 or f_dry = '1' 
+							hypereg <= f_hyperegin; 
 						when others =>
 							hypereg <= hypereg;
 					end case;

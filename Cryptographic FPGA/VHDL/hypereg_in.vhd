@@ -49,7 +49,7 @@ architecture arch of hypereg_in is
 				if (clk'event and clk='1') then
 					if ((rst = '1') OR (dvld_in = '1')) then
 						exp_adr <= "0000000100010000";
-						hy_in <= hy_in;                       -- maybe <=(others =>'0') could be ok
+						hy_in <= hy_in;                       
 					else
 						if ((lbus_a = exp_adr) AND (lbus_wr = '1')) then 
 						      exp_adr <= std_logic_vector(unsigned(exp_adr) + "0000000000000010");

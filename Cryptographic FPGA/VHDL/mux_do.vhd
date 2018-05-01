@@ -29,7 +29,7 @@ architecture arch of muxdo is
     signal temp: std_logic_vector(15 downto 0);
      
 	begin
-	   proc: process(clk)                              -- When it keeps the value of lbus_do stable, when mux_en is not '01' or '10', for the following clock cycles 
+	   proc: process(clk)                              
 	       begin
 	       if (clk'event and clk='1') then
 	           if (rst = '1') then
@@ -46,7 +46,6 @@ architecture arch of muxdo is
 	           end if;
 	       end if;
 	   end process; 
---	   lbus_do <= temp; 
 	   
 		with mux_en select lbus_do <=
 			do_hypereg when "01",

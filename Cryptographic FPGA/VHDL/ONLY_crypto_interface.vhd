@@ -2,9 +2,9 @@
 -- Crypto Interface
 --                                   
 -- File name   : ONLY_crypto_interface.vhd
--- Version     : Version alpha 1.0
+-- Version     : 
 -- Created     : 
--- Last update : 10/Jan/2017
+-- Last update : 10/Jan/2018
 -- Desgined by : Athanassios Moschos
 --
 ----------------------------------------------------------------------------
@@ -400,31 +400,29 @@ architecture arch of crypto_if is
                 end if;
         end process; 
         	
-		G0: blktrig port map (clk_f, rst, lbus_di(0), ctrl_wr_i, blk_trig_i);						-- OUT: blk_trig_i
-		G1: trigctrl port map (clk_f, rst, lbus_a, lbus_wr, ctrl_wr_i);							    -- OUT: ctrl_wr_i
-		G2: comreg port map (clk_f, rst, f_dvld_out, blk_trig_i(0), commandreg_i);				    -- OUT: commandreg_i
-		G3: cryreset port map (clk_f, rst, lbus_a, lbus_di(3), ack_rst_i, rst_state_i, blk_rstn_i);              -- OUT: blk_rstn
+		G0: blktrig port map (clk_f, rst, lbus_di(0), ctrl_wr_i, blk_trig_i);						
+		G1: trigctrl port map (clk_f, rst, lbus_a, lbus_wr, ctrl_wr_i);							    
+		G2: comreg port map (clk_f, rst, f_dvld_out, blk_trig_i(0), commandreg_i);				    
+		G3: cryreset port map (clk_f, rst, lbus_a, lbus_di(3), ack_rst_i, rst_state_i, blk_rstn_i);              
 		G4: rsthold port map (clk_s, rst, blk_rstn_i, rst_state_i, ack_rst_i, blk_rstn_s_i);				    
-		G5: controlword port map (clk_f, rst, f_krdy_l_i, f_drdy_l_i, f_dvld_out, f_kvld_out, blk_rstn_s_i, blk_endec_i, status_word_i);		-- OUT: status_word_i
-		G6: enhl port map (commandreg_i(INS-1), commandreg_i(INS-2), commandreg_i(0), blk_trig_i(0), enh_i, enl_i); 	    -- OUT: enh_i, enl_i
-		G7: k_rdy port map (clk_f, rst, enl_i, f_krdy_l_i);					    				    -- OUT: blk_krdy_i
-		G8: d_rdy port map (clk_f, rst, enh_i, f_drdy_l_i);										    -- OUT: blk_drdy_i
-		G9: addcon port map (clk_f, rst, lbus_a, lbus_rd, exp_adr2_i, mux_en_i);					-- OUT: mux_en_i
+		G5: controlword port map (clk_f, rst, f_krdy_l_i, f_drdy_l_i, f_dvld_out, f_kvld_out, blk_rstn_s_i, blk_endec_i, status_word_i);
+		G6: enhl port map (commandreg_i(INS-1), commandreg_i(INS-2), commandreg_i(0), blk_trig_i(0), enh_i, enl_i);
+		G7: k_rdy port map (clk_f, rst, enl_i, f_krdy_l_i);					    				    
+		G8: d_rdy port map (clk_f, rst, enh_i, f_drdy_l_i);										    
+		G9: addcon port map (clk_f, rst, lbus_a, lbus_rd, exp_adr2_i, mux_en_i);					
 		
-		G10: hypereg_in port map (clk_f, rst, f_dvld_out, lbus_a, lbus_di, lbus_wr, f_hypereg_in_i, exp_adr1_i);											-- OUT: hypereg_in_i / exp_adr1_i
-		G11: INTERin port map (clk_f, rst, f_krdy_l_i, f_drdy_l_i, f_hypereg_in_i, s_krdy_c_i, s_drdy_c_i, s_hypereg_in_i, s_kvld_in, s_dvld_in);	    -- OUT: s_krdy_c_i / s_drdy_c_i / s_hypereg_in_i
---		G12: ECin port map (clk_s, rst, blk_in1, blk_in2, blk_in3, blk_in4, blk_in5, blk_krdy_i, blk_drdy_i, hypereg_in_i);				                -- OUT: blk_in1 / blk_in2 / blk_in3 / blk_in4 / blk_in5
-		G12: Crypto_Algo_In port map (clk_s, rst, blk_in1, blk_in5, s_krdy_c_comp, s_drdy_c_comp, s_krdy_c_i, s_drdy_c_i, s_kvld_in, s_dvld_in, s_hypereg_in_i);					-- OUT: blk_kin / blk_din
-
---		G13: cryreEC port map (clk_s, rst, blk_dout1, blk_dout2, blk_dout3, blk_kvld, blk_dvld, hypereg_out_i);   						-- OUT: hypereg_out_i		
-		G13: Crypto_Algo_Return port map (clk_s, rst, blk_dout1, blk_kvld, blk_dvld, s_kvld_out, s_dvld_out, s_hypereg_out_i);						-- OUT: s_kvld_out / s_dvld_out / s_hypereg_out_i
-		G14: INTERout port map (clk_f, rst, f_kvld_out, f_dvld_out, f_hypereg_out_i, s_hypereg_out_i, s_kvld_out, s_dvld_out);				   -- OUT: f_kvld_out / f_dvld_out / f_hypereg_out_i  
-		G15: hypereg_out port map (clk_f, f_dvld_out, lbus_a, lbus_rd, exp_adr1_i, f_hypereg_out_i, lbus_do_i, hyper_rd_ACK_i, exp_adr2_i);    -- OUT: lbus_do_i / exp_adr2_i
+		G10: hypereg_in port map (clk_f, rst, f_dvld_out, lbus_a, lbus_di, lbus_wr, f_hypereg_in_i, exp_adr1_i);											
+		G11: INTERin port map (clk_f, rst, f_krdy_l_i, f_drdy_l_i, f_hypereg_in_i, s_krdy_c_i, s_drdy_c_i, s_hypereg_in_i, s_kvld_in, s_dvld_in);	    				                
+		G12: Crypto_Algo_In port map (clk_s, rst, blk_in1, blk_in5, s_krdy_c_comp, s_drdy_c_comp, s_krdy_c_i, s_drdy_c_i, s_kvld_in, s_dvld_in, s_hypereg_in_i);
+	
+		G13: Crypto_Algo_Return port map (clk_s, rst, blk_dout1, blk_kvld, blk_dvld, s_kvld_out, s_dvld_out, s_hypereg_out_i);
+		G14: INTERout port map (clk_f, rst, f_kvld_out, f_dvld_out, f_hypereg_out_i, s_hypereg_out_i, s_kvld_out, s_dvld_out);
+		G15: hypereg_out port map (clk_f, f_dvld_out, lbus_a, lbus_rd, exp_adr1_i, f_hypereg_out_i, lbus_do_i, hyper_rd_ACK_i, exp_adr2_i);
 		
-		G16: muxdo port map (clk_f, rst, lbus_do, mux_en_i, lbus_do_i, status_word_i);															-- OUT: lbus_do
-		G17: smallin port map (clk_f, rst, lbus_a, lbus_di(7 downto 0), small_in_i);														-- OUT: small_in_i
+		G16: muxdo port map (clk_f, rst, lbus_do, mux_en_i, lbus_do_i, status_word_i);
+		G17: smallin port map (clk_f, rst, lbus_a, lbus_di(7 downto 0), small_in_i);
 		G18: encdec port map (clk_f,  rst, lbus_a, lbus_di(0), blk_endec_i);
-		G19: D_FF port map (hyper_rd_ACK_i, clk_f, hyper_rd_ACK_i_ff);															-- OUT: blk_endec_i
+		G19: D_FF port map (hyper_rd_ACK_i, clk_f, hyper_rd_ACK_i_ff);
 		
 		blk_endec <= blk_endec_i;
 		blk_en <= '1';
