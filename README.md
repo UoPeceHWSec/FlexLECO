@@ -52,5 +52,7 @@ Next update: end of May 2018
 
 ### Support 
 For more information about the FlexLECO feell free to contact:
+
 A. Moschos: ece7567@upnet.gr
+
 A. Fournaris: apofour@ece.upatras.gr
