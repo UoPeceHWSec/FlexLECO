@@ -38,20 +38,31 @@ Simple Cryptographic interface adjustments per DUT:
 - Trace collection for a Wide Range of Side Channel Analysis Attacks
 - Leakage Assessment (eg. Interleaved Random vs Fixed TVLA)
 
+### Prerequirements
+- SAKURA X board
+- Xilinx Software Development Kit (from Xilinx ISE 14.7 system edition). To be used for the SAKURA X Control FPGA
+- Xilinx Vivado 14.2 and above. To be used for the SAKURA X cryptographic FPGA
+
+
 ###
 FlexLECO is basdd on the published work in IEEE Hardware Oriented Security and Trust Symposium 2018:
 
 A. Moschos, A. P. Fournaris, O. Koufopavlou, A Flexible Leakage Trace Collection Setup for Arbitrary Cryptographic IP Cores, in proc. of IEEE International Symposium on Hardware Oriented Security and Trust 2018 (IEEE HOST 2018), Washington DC, USA, April 30 - May 4, 2018
 
+### Git structure
+
+The FlexLECO git has two main folders:
+- Control FPGA folder that has the bitstream to be downloaded in the SAKURA X board control FPGA, the software API functions to be use for designing an experinment. Also, an embedded microblaze software example for collecting 1000 AES traces
+- Cryptographic FPGA folder that contains the FlexLECO cryptographic interface configured for AES 128
 
 ### Current Status
 
-We have currently made available a functional yet draft version of the FlexLECO inplementation. As the research work (IEEE HOST paper) is made fully available (in the IEEExplore proceedings) we will add more features and details on the implementation.
+We have currently made available a functional yet draft version of the FlexLECO inplementation. As the research work (IEEE HOST paper) is made fully available (in the IEEExplore proceedings) we will add more results, examples and details on the implementation.
 
 Next update: end of May 2018
 
 ### Support 
-For more information about the FlexLECO feell free to contact:
+For more information about the FlexLECO feel free to contact:
 
 A. Moschos: ece7567@upnet.gr
 
