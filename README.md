@@ -49,3 +49,8 @@ A. Moschos, A. P. Fournaris, O. Koufopavlou, A Flexible Leakage Trace Collection
 We have currently made available a functional yet draft version of the FlexLECO inplementation. As the research work (IEEE HOST paper) is made fully available (in the IEEExplore proceedings) we will add more features and details on the implementation.
 
 Next update: end of May 2018
+
+### Support 
+For more information about the FlexLECO feell free to contact:
+A. Moschos: ece7567@upnet.gr
+A. Fournaris: apofour@ece.upatras.gr
