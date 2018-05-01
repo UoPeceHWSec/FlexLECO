@@ -69,4 +69,4 @@ A. Moschos: ece7567@upnet.gr
 A. Fournaris: apofour@ece.upatras.gr
 
 ### License
-All code and documents of this repository are publised under the Apache License, Version 2.0
+All code and documents of this repository are published under the Apache License, Version 2.0
