@@ -38,3 +38,14 @@ Simple Cryptographic interface adjustments per DUT:
 - Trace collection for a Wide Range of Side Channel Analysis Attacks
 - Leakage Assessment (eg. Interleaved Random vs Fixed TVLA)
 
+###
+FlexLECO is basdd on the published work in IEEE Hardware Oriented Security and Trust Symposium 2018:
+
+A. Moschos, A. P. Fournaris, O. Koufopavlou, A Flexible Leakage Trace Collection Setup for Arbitrary Cryptographic IP Cores, in proc. of IEEE International Symposium on Hardware Oriented Security and Trust 2018 (IEEE HOST 2018), Washington DC, USA, April 30 - May 4, 2018
+
+
+### Current Status
+
+We have currently made available a functional yet draft version of the FlexLECO inplementation. As the research work (IEEE HOST paper) is made fully available (in the IEEExplore proceedings) we will add more features and details on the implementation.
+
+Next update: end of May 2018
