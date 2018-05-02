@@ -28,7 +28,7 @@ The system has:
 The Control FPGA remains unchanged regardless of the DUT inside the Cryptographic FPGA.
 - Simple configuration by passing specific control words (through the SW API) to hardware control registers/counters.
 - The same software API functions used for the definition of different experiments.
-- An MMCM component for the DUT clock can be configured through a single parameter change during the implementation phase.
+- An MMCM component for the DUT clock can be configured through a single parameter change during the implementation phase.
 
 Simple Cryptographic interface adjustments per DUT:
 1. change of 5 parameters in the VHDL code and by 
