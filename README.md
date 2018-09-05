@@ -59,7 +59,7 @@ The FlexLECO git has two main folders:
 
 We have currently made available a functional yet draft version of the FlexLECO inplementation. As the research work (IEEE HOST paper) is made fully available (in the IEEExplore proceedings) we will add more results, examples and details on the implementation as well as the full documentation of the design.
 
-Next update: end of July 2018
+Release of Version 1: end of September 2018
 
 ### Support 
 For more information about the FlexLECO feel free to contact:
