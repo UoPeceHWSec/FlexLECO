@@ -66,7 +66,7 @@ For more information about the FlexLECO feel free to contact:
 
 A. Moschos: ece7567@upnet.gr
 
-A. Fournaris: apofour@ece.upatras.gr
+A. Fournaris: fournaris@isi.gr
 
 ### License
 All code and documents of this repository are published under the Apache License, Version 2.0
